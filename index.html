@@ -101,7 +101,12 @@
   footer .footer-logo{font-family:Georgia,serif;font-size:1.3rem;color:#D4E4C2;margin-bottom:0.5rem}
   footer p{color:#8AA070}
 
-  .feature-icon svg{width:28px;height:28px;stroke:var(--green-light);fill:none}
+  .abbey-band{position:relative;width:100%;height:420px;overflow:hidden}
+  .abbey-band img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:sepia(20%)}
+  .abbey-overlay{position:absolute;inset:0;background:rgba(30,40,20,0.52);display:flex;align-items:flex-end;padding:2.5rem 3rem}
+  .abbey-quote{font-size:1.4rem;color:#E8F0D8;font-style:italic;font-weight:400;line-height:1.4}
+  .abbey-quote em{display:block;font-size:0.85rem;font-style:normal;font-family:system-ui,sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:#A8C490;margin-top:0.4rem;font-weight:400}
+  .abbey-caption{position:absolute;bottom:0.6rem;right:1rem;font-family:system-ui,sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.4)}
 </style>
 </head>
 <body>
@@ -138,6 +143,13 @@
         <path d="M75 85 Q100 75 125 85" stroke="#2A3320" stroke-width="2" fill="none" opacity="0.5"/>
         <ellipse cx="100" cy="52" rx="28" ry="10" fill="#4A5E35" opacity="0.4"/>
       </svg>
+    </div>
+  </div>
+
+  <div class="abbey-band">
+    <img src="images/rushenabbeypostcard.jpg" alt="Rushen Abbey, Ballasalla, Isle of Man — early 20th century postcard">
+    <div class="abbey-overlay">
+      <p class="abbey-quote">Made in the shadow of Rushen Abbey,<em> Ballasalla, Isle of Man</em></p>
     </div>
   </div>
 
@@ -189,12 +201,8 @@
       ];
       document.write(gi.map(g=>`
         <div class="gallery-item">
-          <div class="gallery-img">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="50" cy="78" rx="28" ry="6" fill="#7A8C5A" opacity="0.3"/>
-              <path d="M28 68 Q23 48 26 32 Q30 18 50 16 Q70 18 74 32 Q77 48 72 68 Q62 76 50 78 Q38 76 28 68Z" fill="#7A8C5A" opacity="0.5"/>
-              <ellipse cx="50" cy="24" rx="14" ry="5" fill="#4A5E35" opacity="0.4"/>
-            </svg>
+          <div class="gallery-img" style="padding:0">
+            <img src="images/dragonpot.jpg" alt="${g.name}" style="width:100%;height:100%;object-fit:cover;object-position:center top">
           </div>
           <div class="gallery-caption">
             <h3>${g.name}</h3>
@@ -227,12 +235,8 @@
       ];
       document.write(pieces.map(p=>`
         <div class="piece-card">
-          <div class="piece-img">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="50" cy="78" rx="28" ry="6" fill="#7A8C5A" opacity="0.3"/>
-              <path d="M28 68 Q23 48 26 32 Q30 18 50 16 Q70 18 74 32 Q77 48 72 68 Q62 76 50 78 Q38 76 28 68Z" fill="#7A8C5A" opacity="0.5"/>
-              <ellipse cx="50" cy="24" rx="14" ry="5" fill="#4A5E35" opacity="0.4"/>
-            </svg>
+          <div class="piece-img" style="padding:0">
+            <img src="images/dragonpot.jpg" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;object-position:center top">
           </div>
           <div class="piece-info">
             <h3>${p.name}</h3>
