@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Always Pottery</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --clay:#8B5E3C;--clay-light:#C4956A;--clay-pale:#F5EDE3;--clay-dark:#5C3D24;
+    --cream:#FAF6F0;--warm-gray:#6B5E54;--warm-gray-light:#9C8C82;
+    --text:#2C1F14;--text-muted:#7A6558;
+    --border:#E2D5C8;--white:#FFFCF8;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:Georgia,serif;background:var(--cream);color:var(--text);line-height:1.7}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 2rem}
+  .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-size:1.4rem;color:var(--clay-dark);letter-spacing:0.02em}
+  .logo span{color:var(--clay-light);font-style:italic}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--text-muted);font-family:system-ui,sans-serif;font-size:0.9rem;letter-spacing:0.05em;transition:color 0.2s}
+  .nav-links a:hover{color:var(--clay)}
+  .nav-cta{background:var(--clay);color:var(--white)!important;padding:0.4rem 1.1rem;border-radius:4px}
+  .nav-cta:hover{background:var(--clay-dark)!important;color:var(--white)!important}
+
+  /* SECTIONS */
+  section{display:none;min-height:100vh}
+  section.active{display:block}
+
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 64px)}
+  .hero-text{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 2rem;max-width:580px;margin-left:auto}
+  .hero-eyebrow{font-family:system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--clay);margin-bottom:1.2rem}
+  .hero h1{font-size:3.2rem;line-height:1.15;color:var(--clay-dark);margin-bottom:1.5rem;font-weight:400}
+  .hero h1 em{color:var(--clay);font-style:italic}
+  .hero p{color:var(--text-muted);font-size:1.1rem;margin-bottom:2.5rem;line-height:1.8}
+  .btn{display:inline-block;text-decoration:none;font-family:system-ui,sans-serif;font-size:0.9rem;letter-spacing:0.05em;cursor:pointer;border:none}
+  .btn-primary{background:var(--clay);color:var(--white);padding:0.85rem 2rem;border-radius:4px;transition:background 0.2s}
+  .btn-primary:hover{background:var(--clay-dark)}
+  .btn-outline{background:transparent;color:var(--clay);border:1px solid var(--clay);padding:0.85rem 2rem;border-radius:4px;margin-left:1rem;transition:all 0.2s}
+  .btn-outline:hover{background:var(--clay);color:var(--white)}
+  .hero-image{background:var(--clay-pale);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .hero-image svg{opacity:0.35;width:280px;height:280px}
+
+  /* PLACEHOLDER POTTERY SVG */
+  .placeholder{background:var(--clay-pale);display:flex;align-items:center;justify-content:center;color:var(--clay-light)}
+
+  /* PAGE HEADER */
+  .page-header{background:var(--clay-pale);padding:5rem 2rem 4rem;text-align:center;border-bottom:1px solid var(--border)}
+  .page-header h1{font-size:2.8rem;color:var(--clay-dark);font-weight:400;margin-bottom:0.75rem}
+  .page-header p{color:var(--text-muted);font-size:1.05rem;max-width:500px;margin:0 auto}
+
+  /* GALLERY */
+  .gallery-grid{max-width:1100px;margin:4rem auto;padding:0 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .gallery-item{border-radius:6px;overflow:hidden;border:1px solid var(--border);background:var(--white)}
+  .gallery-img{height:280px;background:var(--clay-pale);display:flex;align-items:center;justify-content:center;position:relative}
+  .gallery-img svg{width:80px;height:80px;opacity:0.4}
+  .gallery-caption{padding:1rem 1.25rem}
+  .gallery-caption h3{font-size:1rem;color:var(--clay-dark);margin-bottom:0.25rem;font-weight:400}
+  .gallery-caption p{font-size:0.85rem;color:var(--text-muted);font-family:system-ui,sans-serif}
+
+  /* ABOUT */
+  .about-inner{max-width:1000px;margin:5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+  .about-image{height:500px;background:var(--clay-pale);border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+  .about-image svg{width:120px;height:120px;opacity:0.4}
+  .about-text h2{font-size:2rem;color:var(--clay-dark);font-weight:400;margin-bottom:1.5rem}
+  .about-text p{color:var(--text-muted);margin-bottom:1.2rem;line-height:1.85}
+  .about-text em{color:var(--clay);font-style:italic}
+  .divider{width:50px;height:2px;background:var(--clay-light);margin:1.5rem 0}
+
+  /* AVAILABLE */
+  .available-intro{max-width:700px;margin:0 auto;text-align:center;padding:4rem 2rem 2rem}
+  .available-intro p{color:var(--text-muted)}
+  .pieces-grid{max-width:1100px;margin:2rem auto 5rem;padding:0 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .piece-card{background:var(--white);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+  .piece-img{height:260px;background:var(--clay-pale);display:flex;align-items:center;justify-content:center}
+  .piece-img svg{width:80px;height:80px;opacity:0.4}
+  .piece-info{padding:1.25rem}
+  .piece-info h3{font-size:1rem;color:var(--clay-dark);font-weight:400;margin-bottom:0.3rem}
+  .piece-info .desc{font-size:0.85rem;color:var(--text-muted);font-family:system-ui,sans-serif;margin-bottom:1rem}
+  .piece-info .status{display:inline-block;font-family:system-ui,sans-serif;font-size:0.75rem;padding:0.25rem 0.65rem;border-radius:3px;margin-bottom:1rem}
+  .status-available{background:#EEF4E8;color:#4A7A2A}
+  .status-sold{background:#F2EDED;color:#9A4040}
+  .enquire-btn{display:block;text-align:center;background:var(--clay);color:var(--white);padding:0.6rem;border-radius:4px;text-decoration:none;font-family:system-ui,sans-serif;font-size:0.85rem;transition:background 0.2s}
+  .enquire-btn:hover{background:var(--clay-dark)}
+  .enquire-btn.sold{background:var(--border);color:var(--text-muted);cursor:default;pointer-events:none}
+
+  /* CONTACT */
+  .contact-inner{max-width:900px;margin:5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem}
+  .contact-info h2{font-size:1.8rem;color:var(--clay-dark);font-weight:400;margin-bottom:1.5rem}
+  .contact-info p{color:var(--text-muted);margin-bottom:1.5rem;line-height:1.85}
+  .contact-detail{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1rem;font-family:system-ui,sans-serif;font-size:0.9rem;color:var(--text-muted)}
+  .contact-icon{width:20px;height:20px;flex-shrink:0;margin-top:2px;color:var(--clay)}
+  form{display:flex;flex-direction:column;gap:1.2rem}
+  label{font-family:system-ui,sans-serif;font-size:0.85rem;color:var(--text-muted);display:block;margin-bottom:0.3rem}
+  input,textarea,select{width:100%;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:4px;background:var(--white);color:var(--text);font-family:Georgia,serif;font-size:0.95rem;outline:none;transition:border-color 0.2s}
+  input:focus,textarea:focus{border-color:var(--clay-light)}
+  textarea{min-height:140px;resize:vertical}
+  .form-submit{background:var(--clay);color:var(--white);padding:0.85rem;border-radius:4px;border:none;font-family:system-ui,sans-serif;font-size:0.95rem;cursor:pointer;transition:background 0.2s}
+  .form-submit:hover{background:var(--clay-dark)}
+  .success-msg{display:none;background:#EEF4E8;color:#4A7A2A;padding:1rem;border-radius:4px;font-family:system-ui,sans-serif;font-size:0.9rem;text-align:center}
+
+  /* FOOTER */
+  footer{background:var(--clay-dark);color:#D4B99A;padding:3rem 2rem;text-align:center;font-family:system-ui,sans-serif;font-size:0.85rem}
+  footer .footer-logo{font-family:Georgia,serif;font-size:1.3rem;color:#EDD9C2;margin-bottom:0.5rem}
+  footer p{color:#A08068}
+
+  /* FEATURE STRIP */
+  .features{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 2rem}
+  .features-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+  .feature h3{font-size:1rem;color:var(--clay-dark);margin-bottom:0.5rem;font-weight:400}
+  .feature p{font-size:0.9rem;color:var(--text-muted);font-family:system-ui,sans-serif}
+  .feature-icon{font-size:1.8rem;margin-bottom:0.75rem;display:block}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Always <span>Pottery</span></div>
+    <ul class="nav-links">
+      <li><a href="#" onclick="show('home')">Home</a></li>
+      <li><a href="#" onclick="show('gallery')">Gallery</a></li>
+      <li><a href="#" onclick="show('available')">Available Pieces</a></li>
+      <li><a href="#" onclick="show('about')">About</a></li>
+      <li><a href="#" onclick="show('contact')" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <div class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Handmade on the Isle of Man</p>
+      <h1>Pottery made with <em>love</em> and clay</h1>
+      <p>Each piece is hand-thrown, one at a time. Functional, beautiful, and made to be part of your everyday life.</p>
+      <div>
+        <a class="btn btn-primary" href="#" onclick="show('gallery')">View the Gallery</a>
+        <a class="btn btn-outline" href="#" onclick="show('available')">Available Pieces</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="160" rx="55" ry="12" fill="#8B5E3C" opacity="0.3"/>
+        <path d="M65 140 Q55 100 60 70 Q65 40 100 35 Q135 40 140 70 Q145 100 135 140 Q120 155 100 158 Q80 155 65 140Z" fill="#C4956A"/>
+        <path d="M75 85 Q100 75 125 85" stroke="#8B5E3C" stroke-width="2" fill="none" opacity="0.5"/>
+        <ellipse cx="100" cy="52" rx="28" ry="10" fill="#8B5E3C" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="features-inner">
+      <div class="feature">
+        <span class="feature-icon">🏺</span>
+        <h3>Hand-thrown</h3>
+        <p>Every piece is shaped by hand on the wheel — no two are ever quite the same.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🌿</span>
+        <h3>Natural glazes</h3>
+        <p>Earth-toned, food-safe glazes inspired by the Isle of Man's landscape.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">📦</span>
+        <h3>Made to order</h3>
+        <p>Don't see what you're looking for? Get in touch and let's make something together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="page-header">
+    <h1>Gallery</h1>
+    <p>A selection of pieces past and present — each one made with care in my home studio.</p>
+  </div>
+  <div class="gallery-grid">
+    <!-- 9 placeholder items -->
+    <script>
+      const galleryItems=[
+        {name:"Speckled breakfast bowl",type:"Stoneware, ash glaze"},
+        {name:"Tall vase, sea mist",type:"Porcelain, celadon glaze"},
+        {name:"Rustic mug set",type:"Stoneware, tenmoku glaze"},
+        {name:"Bread crock",type:"Stoneware, slip decorated"},
+        {name:"Bud vase trio",type:"Earthenware, terracotta"},
+        {name:"Pasta bowl, wide rim",type:"Stoneware, oatmeal glaze"},
+        {name:"Serving platter",type:"Stoneware, wood fire"},
+        {name:"Small lidded pot",type:"Porcelain, white glaze"},
+        {name:"Espresso cups (set of 2)",type:"Stoneware, iron wash"}
+      ];
+      document.write(galleryItems.map(g=>`
+        <div class="gallery-item">
+          <div class="gallery-img">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="78" rx="28" ry="6" fill="#C4956A" opacity="0.3"/>
+              <path d="M28 68 Q23 48 26 32 Q30 18 50 16 Q70 18 74 32 Q77 48 72 68 Q62 76 50 78 Q38 76 28 68Z" fill="#C4956A" opacity="0.6"/>
+              <ellipse cx="50" cy="24" rx="14" ry="5" fill="#8B5E3C" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <h3>${g.name}</h3>
+            <p>${g.type}</p>
+          </div>
+        </div>
+      `).join(''));
+    </script>
+  </div>
+</section>
+
+<!-- AVAILABLE -->
+<section id="available">
+  <div class="page-header">
+    <h1>Available Pieces</h1>
+    <p>Ready to find a new home. Enquire by email and I'll get back to you within a day or two.</p>
+  </div>
+  <div class="available-intro">
+    <p>Pieces marked as available are ready to go. I can arrange postage within the UK & Ireland, or local collection on the Isle of Man.</p>
+  </div>
+  <div class="pieces-grid">
+    <script>
+      const pieces=[
+        {name:"Honey pot with lid",desc:"Warm amber glaze, hand-pulled knob. Holds approx 200ml.",status:"available",price:"£38"},
+        {name:"Set of 4 mugs",desc:"Matching stoneware mugs, oatmeal & speckle glaze.",status:"available",price:"£85"},
+        {name:"Wide cereal bowl",desc:"Generous bowl in sea-mist porcelain. Dishwasher safe.",status:"sold",price:"£32"},
+        {name:"Flower bud vase",desc:"Slim neck, terracotta body. Perfect for a single stem.",status:"available",price:"£24"},
+        {name:"Pasta serving bowl",desc:"Large, wide-rim bowl in rustic tenmoku. Seats 4-6.",status:"available",price:"£65"},
+        {name:"Espresso cup",desc:"Tiny but mighty. Iron wash glaze, dimpled grip.",status:"sold",price:"£18"},
+      ];
+      document.write(pieces.map(p=>`
+        <div class="piece-card">
+          <div class="piece-img">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="78" rx="28" ry="6" fill="#C4956A" opacity="0.3"/>
+              <path d="M28 68 Q23 48 26 32 Q30 18 50 16 Q70 18 74 32 Q77 48 72 68 Q62 76 50 78 Q38 76 28 68Z" fill="#C4956A" opacity="0.6"/>
+              <ellipse cx="50" cy="24" rx="14" ry="5" fill="#8B5E3C" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="piece-info">
+            <h3>${p.name}</h3>
+            <p class="desc">${p.desc}</p>
+            <span class="status ${p.status==='available'?'status-available':'status-sold'}">${p.status==='available'?'Available — '+p.price:'Sold'}</span>
+            <a href="#" class="enquire-btn ${p.status==='sold'?'sold':''}" onclick="${p.status==='available'?"show('contact')":'return false'}">${p.status==='available'?'Enquire about this piece':'No longer available'}</a>
+          </div>
+        </div>
+      `).join(''));
+    </script>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-image">
+      <svg viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="75" cy="55" r="28" fill="#C4956A" opacity="0.5"/>
+        <path d="M40 130 Q40 95 75 90 Q110 95 110 130" fill="#8B5E3C" opacity="0.3"/>
+        <ellipse cx="75" cy="55" rx="14" ry="16" fill="#8B5E3C" opacity="0.2"/>
+      </svg>
+    </div>
+    <div class="about-text">
+      <p style="font-family:system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--clay);margin-bottom:0.75rem">The potter</p>
+      <h2>Hello, I'm [your name]</h2>
+      <div class="divider"></div>
+      <p>I've been making pottery from my home studio on the Isle of Man for over a decade. What started as a weekend class became a quiet obsession — and eventually, a practice that shapes my days.</p>
+      <p>I work mostly in stoneware and porcelain, drawn to earthy glazes and forms that feel good in the hand. I make things I'd want to use myself: <em>mugs that feel right first thing in the morning, bowls wide enough for a proper meal, vases that hold a single flower well.</em></p>
+      <p>Every piece is made one at a time, in my garden studio, surrounded by the kind of quiet that lets you think.</p>
+      <a class="btn btn-primary" href="#" onclick="show('contact')" style="margin-top:0.5rem">Say hello</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="page-header">
+    <h1>Get in touch</h1>
+    <p>Whether you want to enquire about a piece, discuss a commission, or just say hello — I'd love to hear from you.</p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info">
+      <h2>Let's talk pottery</h2>
+      <p>I reply to all messages personally, usually within a couple of days. For enquiries about specific pieces, let me know which one caught your eye.</p>
+      <div class="contact-detail">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l9 6 9-6M3 8h18v12H3V8z"/></svg>
+        <span>hello@alwayspottery.im</span>
+      </div>
+      <div class="contact-detail">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>Isle of Man, British Isles</span>
+      </div>
+      <div class="contact-detail">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>I reply within 1–2 days</span>
+      </div>
+    </div>
+    <div>
+      <form onsubmit="submitForm(event)">
+        <div>
+          <label>Your name</label>
+          <input type="text" placeholder="Jane Smith" required>
+        </div>
+        <div>
+          <label>Email address</label>
+          <input type="email" placeholder="jane@example.com" required>
+        </div>
+        <div>
+          <label>What's this about?</label>
+          <select>
+            <option>Enquiring about a piece</option>
+            <option>Commission request</option>
+            <option>General question</option>
+            <option>Just saying hello</option>
+          </select>
+        </div>
+        <div>
+          <label>Message</label>
+          <textarea placeholder="Tell me what you have in mind..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send message</button>
+      </form>
+      <div class="success-msg" id="success">Thank you! I'll be in touch shortly.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Always Pottery</div>
+  <p>Handmade on the Isle of Man &nbsp;·&nbsp; alwayspottery.im</p>
+  <p style="margin-top:0.5rem">© 2025 Always Pottery. All rights reserved.</p>
+</footer>
+
+<script>
+function show(id){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function submitForm(e){
+  e.preventDefault();
+  e.target.style.display='none';
+  document.getElementById('success').style.display='block';
+}
+</script>
+</body>
+</html>
