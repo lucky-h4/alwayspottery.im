@@ -531,7 +531,7 @@ function loadFromHash(){
   document.getElementById(id).classList.add('active');
 }
 window.addEventListener('popstate', loadFromHash);
-window.addEventListener('load', loadFromHash);
+loadFromHash();
 function toggleMenu(){
   document.getElementById('mobile-menu').classList.toggle('open');
 }
