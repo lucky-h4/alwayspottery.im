@@ -237,8 +237,8 @@
       <h1>Pottery shaped by <em>nature</em> and history</h1>
       <p>Each piece is handbuilt — never wheel-thrown — in a studio that carries the name of the house it calls home. Experimental, nature-inspired, and made one at a time.</p>
       <div class="hero-btns">
-        <a class="btn btn-primary" href="#" onclick="show('gallery')">View the Gallery</a>
-        <a class="btn btn-outline" href="#" onclick="show('available')">Available Pieces</a>
+        <a class="btn btn-primary" href="#gallery">View the Gallery</a>
+        <a class="btn btn-outline" href="#available">Available Pieces</a>
       </div>
     </div>
     <div class="hero-image" style="padding:0">
@@ -370,7 +370,7 @@
             <h3>${p.name}</h3>
             <p class="desc">${p.desc}</p>
             <span class="status ${p.status==='available'?'status-available':'status-sold'}">${p.status==='available'?'Available — '+p.price:'Sold'}</span>
-            <a href="#" class="enquire-btn ${p.status==='sold'?'sold':''}" onclick="${p.status==='available'?"show('contact')":'return false'}">${p.status==='available'?'Enquire about this piece':'No longer available'}</a>
+            <a href="#contact" class="enquire-btn ${p.status==='sold'?'sold':''}">${p.status==='available'?'Enquire about this piece':'No longer available'}</a>
           </div>
         </div>
       `).join(''));
@@ -392,7 +392,7 @@
       <p>My work is experimental and nature-driven. The textures of bark, stone, lichen, and shoreline find their way into the clay. I'm less interested in making perfect vessels than in making <em>honest ones</em> — objects that feel like they've come from somewhere.</p>
       <p>That somewhere is Ballasalla, in the south of the Isle of Man. My studio is in a house called <em>Always</em> — and that name has a history worth knowing.</p>
       <p>Always was built by the Simcocks family, who played a central role in establishing the celebrated Rushen Abbey and Gardens Limited in the early twentieth century. From 1930 into the 1980s, Always was their family home, sitting above the Abbey gardens. The house was later renamed Nookery Hill, but I've chosen to bring back its original name — it felt right for a place where something is always being made.</p>
-      <a class="btn btn-primary" href="#" onclick="show('contact')" style="margin-top:0.5rem">Say hello</a>
+      <a class="btn btn-primary" href="#contact" style="margin-top:0.5rem">Say hello</a>
     </div>
   </div>
 </section>
