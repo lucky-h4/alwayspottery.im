@@ -210,11 +210,11 @@
   <div class="nav-inner">
     <div class="logo">Always <span>Pottery</span></div>
     <ul class="nav-links">
-      <li><a href="#" onclick="show('home')">Home</a></li>
-      <li><a href="#" onclick="show('gallery')">Gallery</a></li>
-      <li><a href="#" onclick="show('available')">Available Pieces</a></li>
-      <li><a href="#" onclick="show('about')">About</a></li>
-      <li><a href="#" onclick="show('contact')" class="nav-cta">Get in Touch</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#available">Available Pieces</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
     <div class="nav-toggle" onclick="toggleMenu()" id="toggle">
       <span></span><span></span><span></span>
@@ -515,7 +515,6 @@ function show(id){
   document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
-  history.pushState(null,null, id==='home' ? '/' : '#'+id);
   const mm = document.getElementById('mobile-menu');
   if(mm) mm.classList.remove('open');
 }
@@ -525,19 +524,25 @@ function toggleMenu(){
 function closeMenu(){
   document.getElementById('mobile-menu').classList.remove('open');
 }
-window.addEventListener('popstate',()=>{
+document.addEventListener('click',function(e){
+  const a = e.target.closest('a[href^="#"]');
+  if(!a) return;
+  const id = a.getAttribute('href').replace('#','');
+  const valid = ['home','gallery','available','about','contact'];
+  if(!valid.includes(id)) return;
+  e.preventDefault();
+  show(id);
+  history.pushState(null,null,'#'+id);
+});
+window.addEventListener('popstate',function(){
   const hash = window.location.hash.replace('#','');
   const valid = ['home','gallery','available','about','contact'];
-  const id = valid.includes(hash) ? hash : 'home';
-  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  show(valid.includes(hash) ? hash : 'home');
 });
 (function(){
   const hash = window.location.hash.replace('#','');
   const valid = ['home','gallery','available','about','contact'];
-  const id = valid.includes(hash) ? hash : 'home';
-  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  show(valid.includes(hash) ? hash : 'home');
 })();
 function toggleMenu(){
   document.getElementById('mobile-menu').classList.toggle('open');
