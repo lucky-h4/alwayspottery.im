@@ -513,8 +513,16 @@ function show(id){
   document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
+  history.pushState(null,null,'#'+id);
   closeMenu();
 }
+function loadFromHash(){
+  const hash = window.location.hash.replace('#','');
+  const valid = ['home','gallery','available','about','contact'];
+  show(valid.includes(hash) ? hash : 'home');
+}
+window.addEventListener('popstate', loadFromHash);
+window.addEventListener('DOMContentLoaded', loadFromHash);
 function toggleMenu(){
   document.getElementById('mobile-menu').classList.toggle('open');
 }
