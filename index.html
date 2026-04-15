@@ -514,15 +514,24 @@ function show(id){
   document.getElementById(id).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   history.pushState(null,null,'#'+id);
-  closeMenu();
+  const mm = document.getElementById('mobile-menu');
+  if(mm) mm.classList.remove('open');
+}
+function toggleMenu(){
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
 }
 function loadFromHash(){
   const hash = window.location.hash.replace('#','');
   const valid = ['home','gallery','available','about','contact'];
-  show(valid.includes(hash) ? hash : 'home');
+  const id = valid.includes(hash) ? hash : 'home';
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 window.addEventListener('popstate', loadFromHash);
-window.addEventListener('DOMContentLoaded', loadFromHash);
+window.addEventListener('load', loadFromHash);
 function toggleMenu(){
   document.getElementById('mobile-menu').classList.toggle('open');
 }
