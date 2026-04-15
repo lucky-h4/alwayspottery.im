@@ -295,15 +295,24 @@
   <div class="gallery-grid">
     <script>
       const gi=[
+        {name:"Ceramic owl on garden stake",type:"Earthenware, handbuilt",img:"001_ceramic-owl-figurine-on-garden-stake.jpg"},
         {name:"Dragon sculpture",type:"Stoneware, handbuilt — pre-bisque",img:"002_large-ceramic-dragon-sculpture-in-studio.jpg"},
         {name:"Marbled glaze bowl",type:"Stoneware, brown & grey marbled glaze",img:"003_large-ceramic-bowl-with-marbled-glaze.jpg"},
+        {name:"Expressive face sculpture",type:"Clay, awaiting bisque firing",img:"004_clay-expressive-face-sculpture-awaiting-bisque-firing.jpg"},
         {name:"Green Man planter",type:"Earthenware, handbuilt with leaf detail",img:"005_ceramic-green-man-face-planter-bowl-outdoors.jpg"},
+        {name:"Cat face plaque",type:"Earthenware, handbuilt",img:"006_ceramic-cat-face-plaque-on-stone-bird-bath.jpg"},
+        {name:"Yoga frog",type:"Earthenware, handbuilt",img:"007_ceramic-frog-sculpture-in-yoga-pose.jpg"},
         {name:"Hare bird bath",type:"Stoneware, three hare figures in relief",img:"008_ceramic-bird-bath-with-three-hare-figures-in-garden.jpg"},
         {name:"Sun face pot",type:"Earthenware, smiling sun in relief",img:"009_clay-sun-face-pot-with-scalloped-rim.jpg"},
         {name:"Robin bird bath",type:"Glazed stoneware with robin figurines",img:"010_ceramic-bird-bath-with-two-robin-figurines.jpg"},
         {name:"Owl bowl",type:"Terracotta, owl & spiral relief",img:"011_ceramic-bowl-with-owl-and-spiral-relief-decoration.jpg"},
+        {name:"Studio collection",type:"Mixed earthenware — hedgehogs, masks & tiles",img:"012_ceramic-hedgehog-hand-face-and-tile-pieces-laid-out.jpg"},
         {name:"Hare sculptures",type:"Terracotta, handbuilt seated hares",img:"013_four-ceramic-hare-sculptures-on-wooden-board.jpg"},
+        {name:"Owl figurines & bird heads",type:"Earthenware, handbuilt",img:"014_collection-of-ceramic-owl-figurines-and-bird-heads.jpg"},
+        {name:"Hares in the kiln",type:"Stoneware, dark fired",img:"015_four-dark-ceramic-hares-inside-kiln.jpg"},
         {name:"Fired hares",type:"Stoneware, rust-brown fired finish",img:"016_four-fired-ceramic-hares-lined-up-on-white-cloth.jpg"},
+        {name:"Three fired hares",type:"Stoneware, rust-brown fired finish",img:"017_three-fired-ceramic-hares-on-white-cloth.jpg"},
+        {name:"Hares with name tag",type:"Stoneware, fired — ready to go",img:"018_four-fired-ceramic-hares-with-label-on-white-cloth.jpg"},
       ];
       document.write(gi.map((g,i)=>`
         <div class="gallery-item" onclick="openLightbox(${i})">
@@ -450,15 +459,24 @@
 <script>
 let lbIndex = 0;
 const lbItems = [
+  {name:"Ceramic owl on garden stake",type:"Earthenware, handbuilt",img:"001_ceramic-owl-figurine-on-garden-stake.jpg"},
   {name:"Dragon sculpture",type:"Stoneware, handbuilt — pre-bisque",img:"002_large-ceramic-dragon-sculpture-in-studio.jpg"},
   {name:"Marbled glaze bowl",type:"Stoneware, brown & grey marbled glaze",img:"003_large-ceramic-bowl-with-marbled-glaze.jpg"},
+  {name:"Expressive face sculpture",type:"Clay, awaiting bisque firing",img:"004_clay-expressive-face-sculpture-awaiting-bisque-firing.jpg"},
   {name:"Green Man planter",type:"Earthenware, handbuilt with leaf detail",img:"005_ceramic-green-man-face-planter-bowl-outdoors.jpg"},
+  {name:"Cat face plaque",type:"Earthenware, handbuilt",img:"006_ceramic-cat-face-plaque-on-stone-bird-bath.jpg"},
+  {name:"Yoga frog",type:"Earthenware, handbuilt",img:"007_ceramic-frog-sculpture-in-yoga-pose.jpg"},
   {name:"Hare bird bath",type:"Stoneware, three hare figures in relief",img:"008_ceramic-bird-bath-with-three-hare-figures-in-garden.jpg"},
   {name:"Sun face pot",type:"Earthenware, smiling sun in relief",img:"009_clay-sun-face-pot-with-scalloped-rim.jpg"},
   {name:"Robin bird bath",type:"Glazed stoneware with robin figurines",img:"010_ceramic-bird-bath-with-two-robin-figurines.jpg"},
   {name:"Owl bowl",type:"Terracotta, owl & spiral relief",img:"011_ceramic-bowl-with-owl-and-spiral-relief-decoration.jpg"},
+  {name:"Studio collection",type:"Mixed earthenware — hedgehogs, masks & tiles",img:"012_ceramic-hedgehog-hand-face-and-tile-pieces-laid-out.jpg"},
   {name:"Hare sculptures",type:"Terracotta, handbuilt seated hares",img:"013_four-ceramic-hare-sculptures-on-wooden-board.jpg"},
+  {name:"Owl figurines & bird heads",type:"Earthenware, handbuilt",img:"014_collection-of-ceramic-owl-figurines-and-bird-heads.jpg"},
+  {name:"Hares in the kiln",type:"Stoneware, dark fired",img:"015_four-dark-ceramic-hares-inside-kiln.jpg"},
   {name:"Fired hares",type:"Stoneware, rust-brown fired finish",img:"016_four-fired-ceramic-hares-lined-up-on-white-cloth.jpg"},
+  {name:"Three fired hares",type:"Stoneware, rust-brown fired finish",img:"017_three-fired-ceramic-hares-on-white-cloth.jpg"},
+  {name:"Hares with name tag",type:"Stoneware, fired — ready to go",img:"018_four-fired-ceramic-hares-with-label-on-white-cloth.jpg"},
 ];
 function openLightbox(i){
   lbIndex = i;
