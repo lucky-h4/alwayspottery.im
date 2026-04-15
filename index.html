@@ -510,10 +510,12 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape') closeLightbox();
 });
 function show(id){
+  const valid = ['home','gallery','available','about','contact'];
+  if(!valid.includes(id)) id = 'home';
   document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
-  history.pushState(null,null,'#'+id);
+  history.pushState(null,null, id==='home' ? '/' : '#'+id);
   const mm = document.getElementById('mobile-menu');
   if(mm) mm.classList.remove('open');
 }
@@ -523,15 +525,20 @@ function toggleMenu(){
 function closeMenu(){
   document.getElementById('mobile-menu').classList.remove('open');
 }
-function loadFromHash(){
+window.addEventListener('popstate',()=>{
   const hash = window.location.hash.replace('#','');
   const valid = ['home','gallery','available','about','contact'];
   const id = valid.includes(hash) ? hash : 'home';
   document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-}
-window.addEventListener('popstate', loadFromHash);
-loadFromHash();
+});
+(function(){
+  const hash = window.location.hash.replace('#','');
+  const valid = ['home','gallery','available','about','contact'];
+  const id = valid.includes(hash) ? hash : 'home';
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+})();
 function toggleMenu(){
   document.getElementById('mobile-menu').classList.toggle('open');
 }
