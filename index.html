@@ -216,7 +216,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
-    <div class="nav-toggle" onclick="toggleMenu()" id="toggle">
+    <div class="nav-toggle" id="toggle">
       <span></span><span></span><span></span>
     </div>
   </div>
@@ -509,42 +509,42 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight') shiftLightbox(1);
   if(e.key==='Escape') closeLightbox();
 });
+const PAGES = ['home','gallery','available','about','contact'];
+
 function show(id){
-  const valid = ['home','gallery','available','about','contact'];
-  if(!valid.includes(id)) id = 'home';
+  if(!PAGES.includes(id)) id = 'home';
   document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
-  const mm = document.getElementById('mobile-menu');
-  if(mm) mm.classList.remove('open');
+  document.getElementById('mobile-menu').classList.remove('open');
 }
+
 function toggleMenu(){
   document.getElementById('mobile-menu').classList.toggle('open');
 }
-function closeMenu(){
-  document.getElementById('mobile-menu').classList.remove('open');
-}
+
+document.getElementById('toggle').addEventListener('click',function(){
+  document.getElementById('mobile-menu').classList.toggle('open');
+});
+
 document.addEventListener('click',function(e){
   const a = e.target.closest('a[href^="#"]');
   if(!a) return;
   const id = a.getAttribute('href').replace('#','');
-  const valid = ['home','gallery','available','about','contact'];
-  if(!valid.includes(id)) return;
+  if(!PAGES.includes(id)) return;
   e.preventDefault();
   show(id);
-  history.pushState(null,null,'#'+id);
-  const mm = document.getElementById('mobile-menu');
-  if(mm) mm.classList.remove('open');
+  history.pushState(null,'','#'+id);
 });
+
 window.addEventListener('popstate',function(){
-  const hash = window.location.hash.replace('#','');
-  const valid = ['home','gallery','available','about','contact'];
-  show(valid.includes(hash) ? hash : 'home');
+  const id = window.location.hash.replace('#','');
+  show(PAGES.includes(id) ? id : 'home');
 });
-(function(){
-  const hash = window.location.hash.replace('#','');
-  const valid = ['home','gallery','available','about','contact'];
-  show(valid.includes(hash) ? hash : 'home');
+
+(function init(){
+  const id = window.location.hash.replace('#','');
+  show(PAGES.includes(id) ? id : 'home');
 })();
 function toggleMenu(){
   document.getElementById('mobile-menu').classList.toggle('open');
