@@ -533,6 +533,8 @@ document.addEventListener('click',function(e){
   e.preventDefault();
   show(id);
   history.pushState(null,null,'#'+id);
+  const mm = document.getElementById('mobile-menu');
+  if(mm) mm.classList.remove('open');
 });
 window.addEventListener('popstate',function(){
   const hash = window.location.hash.replace('#','');
