@@ -3,205 +3,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Always Pottery</title>
 <meta name="description" content="Handbuilt pottery by Anne Luckins, made at Always in Ballasalla, Isle of Man. Experimental, nature-inspired pieces — each one unique.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
 <meta property="og:title" content="Always Pottery — Handbuilt in Ballasalla, Isle of Man">
 <meta property="og:description" content="Experimental, nature-inspired pottery by Anne Luckins. Each piece handbuilt at Always, overlooking the Rushen Abbey gardens.">
 <meta property="og:image" content="https://alwayspottery.im/images/dragonpot.jpeg">
 <meta property="og:url" content="https://alwayspottery.im">
 <meta property="og:type" content="website">
-
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Always Pottery — Handbuilt in Ballasalla, Isle of Man">
 <meta name="twitter:description" content="Experimental, nature-inspired pottery by Anne Luckins. Each piece handbuilt at Always, overlooking the Rushen Abbey gardens.">
 <meta name="twitter:image" content="https://alwayspottery.im/images/dragonpot.jpeg">
-<title>Always Pottery</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --green:#2A3320;--green-mid:#4A5E35;--green-light:#7A8C5A;--green-pale:#D4E0C4;
-    --sand:#B8A878;--sand-light:#D4C4A0;--parchment:#EDE5D4;--cream:#F8F4EC;
-    --text:#1E2818;--text-muted:#5A5840;--border:#D0C8B4;--white:#FDFAF4;
-  }
-  html{scroll-behavior:smooth}
-  body{font-family:Georgia,serif;background:var(--cream);color:var(--text);line-height:1.7}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#2A3320;--green-mid:#4A5E35;--green-light:#7A8C5A;
+  --sand:#B8A878;--parchment:#EDE5D4;--cream:#F8F4EC;
+  --text:#1E2818;--text-muted:#5A5840;--border:#D0C8B4;--white:#FDFAF4;
+}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,serif;background:var(--cream);color:var(--text);line-height:1.7}
 
-  /* NAV */
-  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 1.5rem}
-  .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
-  .logo{font-size:1.3rem;color:var(--green);letter-spacing:0.02em;flex-shrink:0}
-  .logo span{color:var(--green-light);font-style:italic}
-  .nav-links{display:flex;gap:1.5rem;list-style:none}
-  .nav-links a{text-decoration:none;color:var(--text-muted);font-family:system-ui,sans-serif;font-size:0.85rem;letter-spacing:0.04em;transition:color 0.2s}
-  .nav-links a:hover{color:var(--green-mid)}
-  .nav-cta{background:var(--green-mid);color:var(--white)!important;padding:0.35rem 1rem;border-radius:4px}
-  .nav-cta:hover{background:var(--green)!important}
-  .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-  .nav-toggle span{display:block;width:22px;height:2px;background:var(--green);border-radius:2px;transition:all 0.2s}
-  .mobile-menu{display:none;flex-direction:column;background:var(--white);border-bottom:1px solid var(--border);padding:1rem 1.5rem;gap:0}
-  .mobile-menu.open{display:flex}
-  .mobile-menu a{text-decoration:none;color:var(--text-muted);font-family:system-ui,sans-serif;font-size:1rem;padding:0.75rem 0;border-bottom:1px solid var(--border)}
-  .mobile-menu a:last-child{border-bottom:none;color:var(--green-mid);font-weight:500}
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 1.5rem}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-size:1.3rem;color:var(--green);letter-spacing:0.02em;flex-shrink:0}
+.logo span{color:var(--green-light);font-style:italic}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text-muted);font-family:system-ui,sans-serif;font-size:0.85rem;letter-spacing:0.04em;transition:color 0.2s}
+.nav-links a:hover{color:var(--green-mid)}
+.nav-cta{background:var(--green-mid);color:var(--white)!important;padding:0.35rem 1rem;border-radius:4px}
+.nav-cta:hover{background:var(--green)!important}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--green);border-radius:2px}
+.mobile-menu{display:none;flex-direction:column;background:var(--white);border-bottom:1px solid var(--border);padding:1rem 1.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{text-decoration:none;color:var(--text-muted);font-family:system-ui,sans-serif;font-size:1rem;padding:0.75rem 0;border-bottom:1px solid var(--border)}
+.mobile-menu a:last-child{border-bottom:none;color:var(--green-mid);font-weight:500}
 
-  section{display:none}
-  section.active{display:block}
+/* SECTIONS */
+section{display:none}
+section.active{display:block}
 
-  /* HERO */
-  .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 60px)}
-  .hero-text{display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem 4rem 2rem;max-width:580px;margin-left:auto}
-  .hero-eyebrow{font-family:system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-light);margin-bottom:1rem}
-  .hero h1{font-size:2.8rem;line-height:1.15;color:var(--green);margin-bottom:1.25rem;font-weight:400}
-  .hero h1 em{color:var(--green-mid);font-style:italic}
-  .hero p{color:var(--text-muted);font-size:1rem;margin-bottom:2rem;line-height:1.8}
-  .hero-btns{display:flex;flex-wrap:wrap;gap:0.75rem}
-  .btn{display:inline-block;text-decoration:none;font-family:system-ui,sans-serif;font-size:0.9rem;letter-spacing:0.04em;cursor:pointer;border:none;text-align:center}
-  .btn-primary{background:var(--green-mid);color:var(--white);padding:0.8rem 1.75rem;border-radius:4px;transition:background 0.2s}
-  .btn-primary:hover{background:var(--green)}
-  .btn-outline{background:transparent;color:var(--green-mid);border:1px solid var(--green-mid);padding:0.8rem 1.75rem;border-radius:4px;transition:all 0.2s}
-  .btn-outline:hover{background:var(--green-mid);color:var(--white)}
-  .hero-image{background:var(--parchment);display:flex;align-items:center;justify-content:center;min-height:300px}
-  .hero-image svg{opacity:0.35;width:200px;height:200px}
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 60px)}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem 4rem 2rem;max-width:580px;margin-left:auto}
+.hero-eyebrow{font-family:system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-light);margin-bottom:1rem}
+.hero h1{font-size:2.8rem;line-height:1.15;color:var(--green);margin-bottom:1.25rem;font-weight:400}
+.hero h1 em{color:var(--green-mid);font-style:italic}
+.hero p{color:var(--text-muted);font-size:1rem;margin-bottom:2rem;line-height:1.8}
+.hero-btns{display:flex;flex-wrap:wrap;gap:0.75rem}
+.hero-image{overflow:hidden;min-height:300px}
+.hero-image img{width:100%;height:100%;object-fit:cover;object-position:center top}
 
-  /* ABBEY BAND */
-  .abbey-band{position:relative;width:100%;height:380px;overflow:hidden}
-  .abbey-band img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:sepia(20%)}
-  .abbey-overlay{position:absolute;inset:0;background:rgba(30,40,20,0.52);display:flex;align-items:flex-end;padding:2rem}
-  .abbey-quote{font-size:1.3rem;color:#E8F0D8;font-style:italic;font-weight:400;line-height:1.4}
-  .abbey-quote em{display:block;font-size:0.75rem;font-style:normal;font-family:system-ui,sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:#A8C490;margin-top:0.4rem;font-weight:400}
+/* BUTTONS */
+.btn{display:inline-block;text-decoration:none;font-family:system-ui,sans-serif;font-size:0.9rem;letter-spacing:0.04em;cursor:pointer;border:none;text-align:center}
+.btn-primary{background:var(--green-mid);color:var(--white);padding:0.8rem 1.75rem;border-radius:4px;transition:background 0.2s}
+.btn-primary:hover{background:var(--green)}
+.btn-outline{background:transparent;color:var(--green-mid);border:1px solid var(--green-mid);padding:0.8rem 1.75rem;border-radius:4px;transition:all 0.2s}
+.btn-outline:hover{background:var(--green-mid);color:var(--white)}
 
-  /* FEATURES */
-  .features{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 2rem}
-  .features-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
-  .feature h3{font-size:1rem;color:var(--green);margin-bottom:0.5rem;font-weight:400}
-  .feature p{font-size:0.9rem;color:var(--text-muted);font-family:system-ui,sans-serif}
-  .feature-icon{margin-bottom:0.75rem;display:flex;justify-content:center}
-  .feature-icon svg{width:28px;height:28px;stroke:var(--green-light);fill:none;stroke-width:1.5}
+/* ABBEY BAND */
+.abbey-band{position:relative;width:100%;height:380px;overflow:hidden}
+.abbey-band img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:sepia(20%)}
+.abbey-overlay{position:absolute;inset:0;background:rgba(30,40,20,0.52);display:flex;align-items:flex-end;padding:2rem}
+.abbey-quote{font-size:1.3rem;color:#E8F0D8;font-style:italic;line-height:1.4}
+.abbey-quote em{display:block;font-size:0.75rem;font-style:normal;font-family:system-ui,sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:#A8C490;margin-top:0.4rem}
 
-  /* PAGE HEADER */
-  .page-header{background:var(--parchment);padding:4rem 1.5rem 3rem;text-align:center;border-bottom:1px solid var(--border)}
-  .page-header h1{font-size:2.4rem;color:var(--green);font-weight:400;margin-bottom:0.75rem}
-  .page-header p{color:var(--text-muted);font-size:1rem;max-width:500px;margin:0 auto}
+/* FEATURES */
+.features{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 2rem}
+.features-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+.feature h3{font-size:1rem;color:var(--green);margin-bottom:0.5rem;font-weight:400}
+.feature p{font-size:0.9rem;color:var(--text-muted);font-family:system-ui,sans-serif}
+.feature-icon{margin-bottom:0.75rem;display:flex;justify-content:center}
+.feature-icon svg{width:28px;height:28px;stroke:var(--green-light);fill:none;stroke-width:1.5}
 
-  /* GALLERY */
-  .gallery-grid{max-width:1100px;margin:3rem auto;padding:0 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-  .gallery-item{border-radius:6px;overflow:hidden;border:1px solid var(--border);background:var(--white);cursor:pointer}
-  .gallery-item:hover .gallery-img img{transform:scale(1.04);transition:transform 0.3s ease}
-  .gallery-img{height:260px;overflow:hidden}
-  .gallery-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.3s ease}
-  .gallery-caption{padding:0.875rem 1rem}
-  .gallery-caption h3{font-size:0.95rem;color:var(--green);margin-bottom:0.2rem;font-weight:400}
-  .gallery-caption p{font-size:0.8rem;color:var(--text-muted);font-family:system-ui,sans-serif}
+/* PAGE HEADER */
+.page-header{background:var(--parchment);padding:4rem 1.5rem 3rem;text-align:center;border-bottom:1px solid var(--border)}
+.page-header h1{font-size:2.4rem;color:var(--green);font-weight:400;margin-bottom:0.75rem}
+.page-header p{color:var(--text-muted);font-size:1rem;max-width:500px;margin:0 auto}
 
-  /* LIGHTBOX */
-  .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(20,28,15,0.92);align-items:center;justify-content:center;padding:1.5rem}
-  .lightbox.open{display:flex}
-  .lightbox-inner{position:relative;max-width:900px;width:100%;max-height:90vh;display:flex;flex-direction:column;align-items:center;gap:1rem}
-  .lightbox-img{max-height:75vh;max-width:100%;object-fit:contain;border-radius:4px}
-  .lightbox-caption{text-align:center}
-  .lightbox-caption h3{color:#E8F0D8;font-size:1.05rem;font-weight:400;margin-bottom:0.2rem}
-  .lightbox-caption p{color:#8AA070;font-family:system-ui,sans-serif;font-size:0.82rem}
-  .lightbox-close{position:absolute;top:-0.5rem;right:0;background:none;border:none;color:#E8F0D8;font-size:1.8rem;cursor:pointer;line-height:1;padding:0.25rem 0.5rem;opacity:0.7;transition:opacity 0.2s}
-  .lightbox-close:hover{opacity:1}
-  .lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(42,51,32,0.7);border:1px solid rgba(255,255,255,0.15);color:#E8F0D8;font-size:1.4rem;cursor:pointer;padding:0.5rem 0.75rem;border-radius:4px;transition:background 0.2s;line-height:1}
-  .lightbox-prev{left:-3rem}.lightbox-next{right:-3rem}
-  .lightbox-prev:hover,.lightbox-next:hover{background:rgba(74,94,53,0.9)}
-  @media(max-width:768px){
-    .lightbox-prev{left:0}.lightbox-next{right:0}
-    .lightbox-inner{padding:0 2.5rem}
-  }
+/* GALLERY */
+.gallery-grid{max-width:1100px;margin:3rem auto;padding:0 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.gallery-item{border-radius:6px;overflow:hidden;border:1px solid var(--border);background:var(--white);cursor:pointer}
+.gallery-img{height:260px;overflow:hidden}
+.gallery-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.3s ease}
+.gallery-item:hover .gallery-img img{transform:scale(1.04)}
+.gallery-caption{padding:0.875rem 1rem}
+.gallery-caption h3{font-size:0.95rem;color:var(--green);margin-bottom:0.2rem;font-weight:400}
+.gallery-caption p{font-size:0.8rem;color:var(--text-muted);font-family:system-ui,sans-serif}
 
-  /* AVAILABLE */
-  .available-intro{max-width:680px;margin:0 auto;text-align:center;padding:3rem 1.5rem 1.5rem}
-  .available-intro p{color:var(--text-muted);font-size:0.95rem}
-  .pieces-grid{max-width:1100px;margin:1.5rem auto 4rem;padding:0 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-  .piece-card{background:var(--white);border:1px solid var(--border);border-radius:6px;overflow:hidden}
-  .piece-img{height:240px;overflow:hidden}
-  .piece-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
-  .piece-info{padding:1rem}
-  .piece-info h3{font-size:0.95rem;color:var(--green);font-weight:400;margin-bottom:0.25rem}
-  .piece-info .desc{font-size:0.82rem;color:var(--text-muted);font-family:system-ui,sans-serif;margin-bottom:0.875rem}
-  .piece-info .status{display:inline-block;font-family:system-ui,sans-serif;font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:3px;margin-bottom:0.875rem}
-  .status-available{background:#E4EDD6;color:#3B5C2A}
-  .status-sold{background:#EDE5D4;color:#7A6030}
-  .enquire-btn{display:block;text-align:center;background:var(--green-mid);color:var(--white);padding:0.55rem;border-radius:4px;text-decoration:none;font-family:system-ui,sans-serif;font-size:0.82rem;transition:background 0.2s}
-  .enquire-btn:hover{background:var(--green)}
-  .enquire-btn.sold{background:var(--border);color:var(--text-muted);cursor:default;pointer-events:none}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(20,28,15,0.92);align-items:center;justify-content:center;padding:1.5rem}
+.lightbox.open{display:flex}
+.lightbox-inner{position:relative;max-width:900px;width:100%;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.lightbox-img{max-height:75vh;max-width:100%;object-fit:contain;border-radius:4px}
+.lightbox-caption{text-align:center}
+.lightbox-caption h3{color:#E8F0D8;font-size:1.05rem;font-weight:400;margin-bottom:0.2rem}
+.lightbox-caption p{color:#8AA070;font-family:system-ui,sans-serif;font-size:0.82rem}
+.lightbox-close{position:absolute;top:-0.5rem;right:0;background:none;border:none;color:#E8F0D8;font-size:1.8rem;cursor:pointer;line-height:1;padding:0.25rem 0.5rem;opacity:0.7;transition:opacity 0.2s}
+.lightbox-close:hover{opacity:1}
+.lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(42,51,32,0.7);border:1px solid rgba(255,255,255,0.15);color:#E8F0D8;font-size:1.4rem;cursor:pointer;padding:0.5rem 0.75rem;border-radius:4px;transition:background 0.2s;line-height:1}
+.lightbox-prev{left:-3rem}
+.lightbox-next{right:-3rem}
+.lightbox-prev:hover,.lightbox-next:hover{background:rgba(74,94,53,0.9)}
 
-  /* ABOUT */
-  .about-inner{max-width:1000px;margin:5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-  .about-image{height:480px;background:var(--parchment);border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .about-image svg{width:120px;height:120px;opacity:0.4}
-  .about-text h2{font-size:1.9rem;color:var(--green);font-weight:400;margin-bottom:1.25rem}
-  .about-text p{color:var(--text-muted);margin-bottom:1.1rem;line-height:1.85;font-size:0.97rem}
-  .about-text em{color:var(--green-mid);font-style:italic}
-  .divider{width:50px;height:2px;background:var(--sand);margin:1.25rem 0}
+/* AVAILABLE */
+.available-intro{max-width:680px;margin:0 auto;text-align:center;padding:3rem 1.5rem 1.5rem}
+.available-intro p{color:var(--text-muted);font-size:0.95rem}
+.pieces-grid{max-width:1100px;margin:1.5rem auto 4rem;padding:0 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.piece-card{background:var(--white);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.piece-img{height:240px;overflow:hidden}
+.piece-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.piece-info{padding:1rem}
+.piece-info h3{font-size:0.95rem;color:var(--green);font-weight:400;margin-bottom:0.25rem}
+.piece-info .desc{font-size:0.82rem;color:var(--text-muted);font-family:system-ui,sans-serif;margin-bottom:0.875rem}
+.piece-info .status{display:inline-block;font-family:system-ui,sans-serif;font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:3px;margin-bottom:0.875rem}
+.status-available{background:#E4EDD6;color:#3B5C2A}
+.status-sold{background:#EDE5D4;color:#7A6030}
+.enquire-btn{display:block;text-align:center;background:var(--green-mid);color:var(--white);padding:0.55rem;border-radius:4px;text-decoration:none;font-family:system-ui,sans-serif;font-size:0.82rem;transition:background 0.2s}
+.enquire-btn:hover{background:var(--green)}
+.enquire-btn.sold{background:var(--border);color:var(--text-muted);cursor:default;pointer-events:none}
 
-  /* CONTACT */
-  .contact-inner{max-width:900px;margin:5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem}
-  .contact-info h2{font-size:1.7rem;color:var(--green);font-weight:400;margin-bottom:1.25rem}
-  .contact-info p{color:var(--text-muted);margin-bottom:1.25rem;line-height:1.85;font-size:0.97rem}
-  .contact-detail{display:flex;align-items:flex-start;gap:0.7rem;margin-bottom:0.875rem;font-family:system-ui,sans-serif;font-size:0.88rem;color:var(--text-muted)}
-  .contact-icon{width:18px;height:18px;flex-shrink:0;margin-top:2px;color:var(--green-light)}
-  form{display:flex;flex-direction:column;gap:1rem}
-  label{font-family:system-ui,sans-serif;font-size:0.82rem;color:var(--text-muted);display:block;margin-bottom:0.25rem}
-  input,textarea,select{width:100%;padding:0.7rem 0.875rem;border:1px solid var(--border);border-radius:4px;background:var(--white);color:var(--text);font-family:Georgia,serif;font-size:0.95rem;outline:none;transition:border-color 0.2s}
-  input:focus,textarea:focus{border-color:var(--green-light)}
-  textarea{min-height:130px;resize:vertical}
-  .form-submit{background:var(--green-mid);color:var(--white);padding:0.8rem;border-radius:4px;border:none;font-family:system-ui,sans-serif;font-size:0.95rem;cursor:pointer;transition:background 0.2s}
-  .form-submit:hover{background:var(--green)}
-  .success-msg{display:none;background:#E4EDD6;color:#3B5C2A;padding:1rem;border-radius:4px;font-family:system-ui,sans-serif;font-size:0.9rem;text-align:center}
+/* ABOUT */
+.about-inner{max-width:1000px;margin:5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-image{height:480px;border-radius:8px;border:1px solid var(--border);overflow:hidden}
+.about-image img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.about-text h2{font-size:1.9rem;color:var(--green);font-weight:400;margin-bottom:1.25rem}
+.about-text p{color:var(--text-muted);margin-bottom:1.1rem;line-height:1.85;font-size:0.97rem}
+.about-text em{color:var(--green-mid);font-style:italic}
+.divider{width:50px;height:2px;background:var(--sand);margin:1.25rem 0}
 
-  /* FOOTER */
-  footer{background:var(--green);color:#B8CCA0;padding:2.5rem 1.5rem;text-align:center;font-family:system-ui,sans-serif;font-size:0.85rem}
-  footer .footer-logo{font-family:Georgia,serif;font-size:1.2rem;color:#D4E4C2;margin-bottom:0.4rem}
-  footer p{color:#8AA070}
+/* CONTACT */
+.contact-inner{max-width:900px;margin:5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-info h2{font-size:1.7rem;color:var(--green);font-weight:400;margin-bottom:1.25rem}
+.contact-info p{color:var(--text-muted);margin-bottom:1.25rem;line-height:1.85;font-size:0.97rem}
+.contact-detail{display:flex;align-items:flex-start;gap:0.7rem;margin-bottom:0.875rem;font-family:system-ui,sans-serif;font-size:0.88rem;color:var(--text-muted)}
+.contact-icon{width:18px;height:18px;flex-shrink:0;margin-top:2px;color:var(--green-light)}
+form{display:flex;flex-direction:column;gap:1rem}
+label{font-family:system-ui,sans-serif;font-size:0.82rem;color:var(--text-muted);display:block;margin-bottom:0.25rem}
+input,textarea,select{width:100%;padding:0.7rem 0.875rem;border:1px solid var(--border);border-radius:4px;background:var(--white);color:var(--text);font-family:Georgia,serif;font-size:0.95rem;outline:none;transition:border-color 0.2s}
+input:focus,textarea:focus{border-color:var(--green-light)}
+textarea{min-height:130px;resize:vertical}
+.form-submit{background:var(--green-mid);color:var(--white);padding:0.8rem;border-radius:4px;border:none;font-family:system-ui,sans-serif;font-size:0.95rem;cursor:pointer;transition:background 0.2s;width:100%}
+.form-submit:hover{background:var(--green)}
+.success-msg{display:none;background:#E4EDD6;color:#3B5C2A;padding:1rem;border-radius:4px;font-family:system-ui,sans-serif;font-size:0.9rem;text-align:center}
 
-  /* ── MOBILE ── */
-  @media(max-width:768px){
-    .nav-links{display:none}
-    .nav-toggle{display:flex}
+/* FOOTER */
+footer{background:var(--green);color:#B8CCA0;padding:2.5rem 1.5rem;text-align:center;font-family:system-ui,sans-serif;font-size:0.85rem}
+footer .footer-logo{font-family:Georgia,serif;font-size:1.2rem;color:#D4E4C2;margin-bottom:0.4rem}
+footer p{color:#8AA070}
 
-    .hero{grid-template-columns:1fr;min-height:auto}
-    .hero-image{display:none}
-    .hero-text{padding:3rem 1.5rem;max-width:100%;margin:0}
-    .hero h1{font-size:2.2rem}
-    .hero p{font-size:0.97rem}
-    .btn-primary,.btn-outline{width:100%;padding:0.875rem}
-
-    .abbey-band{height:260px}
-    .abbey-quote{font-size:1.05rem}
-
-    .features-inner{grid-template-columns:1fr;gap:1.5rem;text-align:left}
-    .feature{display:flex;gap:1rem;align-items:flex-start}
-    .feature-icon{margin:0;flex-shrink:0;margin-top:2px}
-    .feature-content h3{margin-bottom:0.25rem}
-
-    .page-header{padding:3rem 1.5rem 2rem}
-    .page-header h1{font-size:2rem}
-
-    .gallery-grid{grid-template-columns:1fr 1fr;gap:1rem}
-    .gallery-img{height:200px}
-
-    .pieces-grid{grid-template-columns:1fr 1fr;gap:1rem}
-    .piece-img{height:200px}
-
-    .about-inner{grid-template-columns:1fr;gap:2rem;margin:3rem auto}
-    .about-image{height:260px}
-
-    .contact-inner{grid-template-columns:1fr;gap:2.5rem;margin:3rem auto}
-
-    .page-header h1{font-size:1.9rem}
-  }
-
-  @media(max-width:480px){
-    .gallery-grid{grid-template-columns:1fr}
-    .pieces-grid{grid-template-columns:1fr}
-    .gallery-img{height:240px}
-    .piece-img{height:240px}
-    .hero h1{font-size:1.9rem}
-    .abbey-band{height:220px}
-  }
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-image{display:none}
+  .hero-text{padding:3rem 1.5rem;max-width:100%;margin:0}
+  .hero h1{font-size:2.2rem}
+  .btn-primary,.btn-outline{width:100%;padding:0.875rem}
+  .abbey-band{height:260px}
+  .abbey-quote{font-size:1.05rem}
+  .features-inner{grid-template-columns:1fr;gap:1.5rem;text-align:left}
+  .feature{display:flex;gap:1rem;align-items:flex-start}
+  .feature-icon{margin:0;flex-shrink:0;margin-top:2px}
+  .page-header{padding:3rem 1.5rem 2rem}
+  .page-header h1{font-size:1.9rem}
+  .gallery-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .gallery-img{height:200px}
+  .pieces-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .piece-img{height:200px}
+  .about-inner{grid-template-columns:1fr;gap:2rem;margin:3rem auto}
+  .about-image{height:320px}
+  .contact-inner{grid-template-columns:1fr;gap:2.5rem;margin:3rem auto}
+  .lightbox-prev{left:0}
+  .lightbox-next{right:0}
+  .lightbox-inner{padding:0 2.5rem}
+}
+@media(max-width:480px){
+  .gallery-grid{grid-template-columns:1fr}
+  .pieces-grid{grid-template-columns:1fr}
+  .gallery-img{height:240px}
+  .piece-img{height:240px}
+  .hero h1{font-size:1.9rem}
+  .abbey-band{height:220px}
+}
 </style>
 </head>
 <body>
@@ -216,11 +204,12 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
-    <div class="nav-toggle" id="toggle">
+    <div class="nav-toggle" id="nav-toggle">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
+
 <div class="mobile-menu" id="mobile-menu">
   <a href="#home">Home</a>
   <a href="#gallery">Gallery</a>
@@ -230,7 +219,7 @@
 </div>
 
 <!-- HOME -->
-<section id="home" class="active">
+<section id="home">
   <div class="hero">
     <div class="hero-text">
       <p class="hero-eyebrow">Handbuilt in Ballasalla, Isle of Man</p>
@@ -241,15 +230,15 @@
         <a class="btn btn-outline" href="#available">Available Pieces</a>
       </div>
     </div>
-    <div class="hero-image" style="padding:0">
-      <img src="images/dragonpot.jpeg" alt="Handbuilt dragon vessel by Anne Luckins" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+    <div class="hero-image">
+      <img src="images/dragonpot.jpeg" alt="Handbuilt dragon vessel by Anne Luckins">
     </div>
   </div>
 
   <div class="abbey-band">
     <img src="images/rushenabbeypostcard.jpg" alt="Rushen Abbey, Ballasalla, Isle of Man — early 20th century postcard">
     <div class="abbey-overlay">
-      <p class="abbey-quote">Made in the shadow of Rushen Abbey,<em>Ballasalla, Isle of Man</em></p>
+      <p class="abbey-quote">Made in the shadow of Rushen Abbey<em>Ballasalla, Isle of Man</em></p>
     </div>
   </div>
 
@@ -292,48 +281,13 @@
     <h1>Gallery</h1>
     <p>A selection of pieces past and present — each one made with care in the studio at Always.</p>
   </div>
-  <div class="gallery-grid">
-    <script>
-      const gi=[
-        {name:"Ceramic owl on garden stake",type:"Earthenware, handbuilt",img:"001_ceramic-owl-figurine-on-garden-stake.jpg"},
-        {name:"Dragon sculpture",type:"Stoneware, handbuilt — pre-bisque",img:"002_large-ceramic-dragon-sculpture-in-studio.jpg"},
-        {name:"Marbled glaze bowl",type:"Stoneware, brown & grey marbled glaze",img:"003_large-ceramic-bowl-with-marbled-glaze.jpg"},
-        {name:"Expressive face sculpture",type:"Clay, awaiting bisque firing",img:"004_clay-expressive-face-sculpture-awaiting-bisque-firing.jpg"},
-        {name:"Green Man planter",type:"Earthenware, handbuilt with leaf detail",img:"005_ceramic-green-man-face-planter-bowl-outdoors.jpg"},
-        {name:"Cat face plaque",type:"Earthenware, handbuilt",img:"006_ceramic-cat-face-plaque-on-stone-bird-bath.jpg"},
-        {name:"Yoga frog",type:"Earthenware, handbuilt",img:"007_ceramic-frog-sculpture-in-yoga-pose.jpg"},
-        {name:"Hare bird bath",type:"Stoneware, three hare figures in relief",img:"008_ceramic-bird-bath-with-three-hare-figures-in-garden.jpg"},
-        {name:"Sun face pot",type:"Earthenware, smiling sun in relief",img:"009_clay-sun-face-pot-with-scalloped-rim.jpg"},
-        {name:"Robin bird bath",type:"Glazed stoneware with robin figurines",img:"010_ceramic-bird-bath-with-two-robin-figurines.jpg"},
-        {name:"Owl bowl",type:"Terracotta, owl & spiral relief",img:"011_ceramic-bowl-with-owl-and-spiral-relief-decoration.jpg"},
-        {name:"Studio collection",type:"Mixed earthenware — hedgehogs, masks & tiles",img:"012_ceramic-hedgehog-hand-face-and-tile-pieces-laid-out.jpg"},
-        {name:"Hare sculptures",type:"Terracotta, handbuilt seated hares",img:"013_four-ceramic-hare-sculptures-on-wooden-board.jpg"},
-        {name:"Owl figurines & bird heads",type:"Earthenware, handbuilt",img:"014_collection-of-ceramic-owl-figurines-and-bird-heads.jpg"},
-        {name:"Hares in the kiln",type:"Stoneware, dark fired",img:"015_four-dark-ceramic-hares-inside-kiln.jpg"},
-        {name:"Fired hares",type:"Stoneware, rust-brown fired finish",img:"016_four-fired-ceramic-hares-lined-up-on-white-cloth.jpg"},
-        {name:"Three fired hares",type:"Stoneware, rust-brown fired finish",img:"017_three-fired-ceramic-hares-on-white-cloth.jpg"},
-        {name:"Hares with name tag",type:"Stoneware, fired — ready to go",img:"018_four-fired-ceramic-hares-with-label-on-white-cloth.jpg"},
-      ];
-      document.write(gi.map((g,i)=>`
-        <div class="gallery-item" onclick="openLightbox(${i})">
-          <div class="gallery-img">
-            <img src="images/${g.img}" alt="${g.name}">
-          </div>
-          <div class="gallery-caption">
-            <h3>${g.name}</h3>
-            <p>${g.type}</p>
-          </div>
-        </div>
-      `).join(''));
-    </script>
-  </div>
-
-  <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <div class="gallery-grid" id="gallery-grid"></div>
+  <div class="lightbox" id="lightbox">
     <div class="lightbox-inner">
-      <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
-      <button class="lightbox-prev" onclick="shiftLightbox(-1)">&#8249;</button>
+      <button class="lightbox-close" id="lightbox-close">&#x2715;</button>
+      <button class="lightbox-prev" id="lightbox-prev">&#8249;</button>
       <img class="lightbox-img" id="lightbox-img" src="" alt="">
-      <button class="lightbox-next" onclick="shiftLightbox(1)">&#8250;</button>
+      <button class="lightbox-next" id="lightbox-next">&#8250;</button>
       <div class="lightbox-caption">
         <h3 id="lightbox-name"></h3>
         <p id="lightbox-type"></p>
@@ -349,40 +303,16 @@
     <p>Ready to find a new home. Enquire by email and Anne will get back to you within a day or two.</p>
   </div>
   <div class="available-intro">
-    <p>Pieces marked as available are ready to go. Postage within the UK & Ireland, or local collection in Ballasalla.</p>
+    <p>Pieces marked as available are ready to go. Postage within the UK &amp; Ireland, or local collection in Ballasalla.</p>
   </div>
-  <div class="pieces-grid">
-    <script>
-      const pieces=[
-        {name:"Pinched vessel with lichen texture",desc:"Oxide-washed stoneware, organic rim. Approx 18cm tall.",status:"available",price:"£65"},
-        {name:"Coiled bowl, woodland form",desc:"Hand-coiled, ash glaze. Wide and generous — lovely as a fruit bowl.",status:"available",price:"£55"},
-        {name:"Slab dish, coastal",desc:"Slip-decorated earthenware. Textured from Isle of Man shoreline finds.",status:"sold",price:"£48"},
-        {name:"Sculptural bud vase",desc:"Slim porcelain form, celadon glaze. Perfect for a single stem.",status:"available",price:"£38"},
-        {name:"Footed bowl",desc:"Stoneware with bark impression and tenmoku glaze. Food safe.",status:"available",price:"£72"},
-        {name:"Pinch pot trio",desc:"Three small terracotta pinch pots. Sold as a set.",status:"sold",price:"£45"},
-      ];
-      document.write(pieces.map(p=>`
-        <div class="piece-card">
-          <div class="piece-img">
-            <img src="images/dragonpot.jpeg" alt="${p.name}">
-          </div>
-          <div class="piece-info">
-            <h3>${p.name}</h3>
-            <p class="desc">${p.desc}</p>
-            <span class="status ${p.status==='available'?'status-available':'status-sold'}">${p.status==='available'?'Available — '+p.price:'Sold'}</span>
-            <a href="#contact" class="enquire-btn ${p.status==='sold'?'sold':''}">${p.status==='available'?'Enquire about this piece':'No longer available'}</a>
-          </div>
-        </div>
-      `).join(''));
-    </script>
-  </div>
+  <div class="pieces-grid" id="pieces-grid"></div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
-    <div class="about-image" style="padding:0;overflow:hidden">
-      <img src="images/anne.jpeg" alt="Anne Luckins, potter at Always Pottery, Ballasalla" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+    <div class="about-image">
+      <img src="images/anne.jpeg" alt="Anne Luckins, potter at Always Pottery, Ballasalla">
     </div>
     <div class="about-text">
       <p style="font-family:system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-light);margin-bottom:0.75rem">The potter</p>
@@ -422,6 +352,7 @@
     </div>
     <div>
       <form action="https://formspree.io/f/xbdpagdq" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry — Always Pottery">
         <div>
           <label>Your name</label>
           <input type="text" name="name" placeholder="Jane Smith" required>
@@ -443,9 +374,9 @@
           <label>Message</label>
           <textarea name="message" placeholder="Tell me what you have in mind..."></textarea>
         </div>
-        <input type="hidden" name="_subject" value="New enquiry — Always Pottery">
         <button type="submit" class="form-submit">Send message</button>
       </form>
+      <div class="success-msg" id="success">Thank you! Anne will be in touch shortly.</div>
     </div>
   </div>
 </section>
@@ -457,106 +388,133 @@
 </footer>
 
 <script>
-let lbIndex = 0;
-const lbItems = [
-  {name:"Ceramic owl on garden stake",type:"Earthenware, handbuilt",img:"001_ceramic-owl-figurine-on-garden-stake.jpg"},
-  {name:"Dragon sculpture",type:"Stoneware, handbuilt — pre-bisque",img:"002_large-ceramic-dragon-sculpture-in-studio.jpg"},
-  {name:"Marbled glaze bowl",type:"Stoneware, brown & grey marbled glaze",img:"003_large-ceramic-bowl-with-marbled-glaze.jpg"},
-  {name:"Expressive face sculpture",type:"Clay, awaiting bisque firing",img:"004_clay-expressive-face-sculpture-awaiting-bisque-firing.jpg"},
-  {name:"Green Man planter",type:"Earthenware, handbuilt with leaf detail",img:"005_ceramic-green-man-face-planter-bowl-outdoors.jpg"},
-  {name:"Cat face plaque",type:"Earthenware, handbuilt",img:"006_ceramic-cat-face-plaque-on-stone-bird-bath.jpg"},
-  {name:"Yoga frog",type:"Earthenware, handbuilt",img:"007_ceramic-frog-sculpture-in-yoga-pose.jpg"},
-  {name:"Hare bird bath",type:"Stoneware, three hare figures in relief",img:"008_ceramic-bird-bath-with-three-hare-figures-in-garden.jpg"},
-  {name:"Sun face pot",type:"Earthenware, smiling sun in relief",img:"009_clay-sun-face-pot-with-scalloped-rim.jpg"},
-  {name:"Robin bird bath",type:"Glazed stoneware with robin figurines",img:"010_ceramic-bird-bath-with-two-robin-figurines.jpg"},
-  {name:"Owl bowl",type:"Terracotta, owl & spiral relief",img:"011_ceramic-bowl-with-owl-and-spiral-relief-decoration.jpg"},
-  {name:"Studio collection",type:"Mixed earthenware — hedgehogs, masks & tiles",img:"012_ceramic-hedgehog-hand-face-and-tile-pieces-laid-out.jpg"},
-  {name:"Hare sculptures",type:"Terracotta, handbuilt seated hares",img:"013_four-ceramic-hare-sculptures-on-wooden-board.jpg"},
-  {name:"Owl figurines & bird heads",type:"Earthenware, handbuilt",img:"014_collection-of-ceramic-owl-figurines-and-bird-heads.jpg"},
-  {name:"Hares in the kiln",type:"Stoneware, dark fired",img:"015_four-dark-ceramic-hares-inside-kiln.jpg"},
-  {name:"Fired hares",type:"Stoneware, rust-brown fired finish",img:"016_four-fired-ceramic-hares-lined-up-on-white-cloth.jpg"},
-  {name:"Three fired hares",type:"Stoneware, rust-brown fired finish",img:"017_three-fired-ceramic-hares-on-white-cloth.jpg"},
-  {name:"Hares with name tag",type:"Stoneware, fired — ready to go",img:"018_four-fired-ceramic-hares-with-label-on-white-cloth.jpg"},
+// ── DATA ──────────────────────────────────────────────────────
+const GALLERY = [
+  {name:"Ceramic owl on garden stake",    type:"Earthenware, handbuilt",                    img:"001_ceramic-owl-figurine-on-garden-stake.jpg"},
+  {name:"Dragon sculpture",               type:"Stoneware, handbuilt — pre-bisque",          img:"002_large-ceramic-dragon-sculpture-in-studio.jpg"},
+  {name:"Marbled glaze bowl",             type:"Stoneware, brown & grey marbled glaze",      img:"003_large-ceramic-bowl-with-marbled-glaze.jpg"},
+  {name:"Expressive face sculpture",      type:"Clay, awaiting bisque firing",               img:"004_clay-expressive-face-sculpture-awaiting-bisque-firing.jpg"},
+  {name:"Green Man planter",              type:"Earthenware, handbuilt with leaf detail",    img:"005_ceramic-green-man-face-planter-bowl-outdoors.jpg"},
+  {name:"Cat face plaque",                type:"Earthenware, handbuilt",                    img:"006_ceramic-cat-face-plaque-on-stone-bird-bath.jpg"},
+  {name:"Yoga frog",                      type:"Earthenware, handbuilt",                    img:"007_ceramic-frog-sculpture-in-yoga-pose.jpg"},
+  {name:"Hare bird bath",                 type:"Stoneware, three hare figures in relief",   img:"008_ceramic-bird-bath-with-three-hare-figures-in-garden.jpg"},
+  {name:"Sun face pot",                   type:"Earthenware, smiling sun in relief",        img:"009_clay-sun-face-pot-with-scalloped-rim.jpg"},
+  {name:"Robin bird bath",               type:"Glazed stoneware with robin figurines",      img:"010_ceramic-bird-bath-with-two-robin-figurines.jpg"},
+  {name:"Owl bowl",                       type:"Terracotta, owl & spiral relief",           img:"011_ceramic-bowl-with-owl-and-spiral-relief-decoration.jpg"},
+  {name:"Studio collection",             type:"Mixed earthenware — hedgehogs, masks & tiles",img:"012_ceramic-hedgehog-hand-face-and-tile-pieces-laid-out.jpg"},
+  {name:"Hare sculptures",               type:"Terracotta, handbuilt seated hares",         img:"013_four-ceramic-hare-sculptures-on-wooden-board.jpg"},
+  {name:"Owl figurines & bird heads",    type:"Earthenware, handbuilt",                    img:"014_collection-of-ceramic-owl-figurines-and-bird-heads.jpg"},
+  {name:"Hares in the kiln",             type:"Stoneware, dark fired",                     img:"015_four-dark-ceramic-hares-inside-kiln.jpg"},
+  {name:"Fired hares",                   type:"Stoneware, rust-brown fired finish",        img:"016_four-fired-ceramic-hares-lined-up-on-white-cloth.jpg"},
+  {name:"Three fired hares",             type:"Stoneware, rust-brown fired finish",        img:"017_three-fired-ceramic-hares-on-white-cloth.jpg"},
+  {name:"Hares with name tag",           type:"Stoneware, fired — ready to go",           img:"018_four-fired-ceramic-hares-with-label-on-white-cloth.jpg"},
 ];
+
+const PIECES = [
+  {name:"Pinched vessel with lichen texture", desc:"Oxide-washed stoneware, organic rim. Approx 18cm tall.",          status:"available", price:"£65",  img:"002_large-ceramic-dragon-sculpture-in-studio.jpg"},
+  {name:"Coiled bowl, woodland form",         desc:"Hand-coiled, ash glaze. Wide and generous — lovely as a fruit bowl.", status:"available", price:"£55",  img:"003_large-ceramic-bowl-with-marbled-glaze.jpg"},
+  {name:"Slab dish, coastal",                 desc:"Slip-decorated earthenware. Textured from Isle of Man shoreline finds.", status:"sold",      price:"£48",  img:"005_ceramic-green-man-face-planter-bowl-outdoors.jpg"},
+  {name:"Sculptural bud vase",               desc:"Slim porcelain form, celadon glaze. Perfect for a single stem.",    status:"available", price:"£38",  img:"008_ceramic-bird-bath-with-three-hare-figures-in-garden.jpg"},
+  {name:"Footed bowl",                       desc:"Stoneware with bark impression and tenmoku glaze. Food safe.",      status:"available", price:"£72",  img:"011_ceramic-bowl-with-owl-and-spiral-relief-decoration.jpg"},
+  {name:"Pinch pot trio",                    desc:"Three small terracotta pinch pots. Sold as a set.",                 status:"sold",      price:"£45",  img:"013_four-ceramic-hare-sculptures-on-wooden-board.jpg"},
+];
+
+// ── RENDER GALLERY ────────────────────────────────────────────
+document.getElementById('gallery-grid').innerHTML = GALLERY.map((g,i) => `
+  <div class="gallery-item" data-index="${i}">
+    <div class="gallery-img"><img src="images/${g.img}" alt="${g.name}" loading="lazy"></div>
+    <div class="gallery-caption"><h3>${g.name}</h3><p>${g.type}</p></div>
+  </div>`).join('');
+
+// ── RENDER AVAILABLE PIECES ───────────────────────────────────
+document.getElementById('pieces-grid').innerHTML = PIECES.map(p => `
+  <div class="piece-card">
+    <div class="piece-img"><img src="images/${p.img}" alt="${p.name}" loading="lazy"></div>
+    <div class="piece-info">
+      <h3>${p.name}</h3>
+      <p class="desc">${p.desc}</p>
+      <span class="status ${p.status === 'available' ? 'status-available' : 'status-sold'}">${p.status === 'available' ? 'Available — ' + p.price : 'Sold'}</span>
+      <a href="${p.status === 'available' ? '#contact' : '#'}" class="enquire-btn${p.status === 'sold' ? ' sold' : ''}">${p.status === 'available' ? 'Enquire about this piece' : 'No longer available'}</a>
+    </div>
+  </div>`).join('');
+
+// ── LIGHTBOX ──────────────────────────────────────────────────
+let lbIndex = 0;
+
 function openLightbox(i){
   lbIndex = i;
   updateLightbox();
   document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
 }
 function closeLightbox(){
   document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow='';
-}
-function closeLightboxOutside(e){
-  if(e.target===document.getElementById('lightbox')) closeLightbox();
+  document.body.style.overflow = '';
 }
 function shiftLightbox(dir){
-  lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
+  lbIndex = (lbIndex + dir + GALLERY.length) % GALLERY.length;
   updateLightbox();
 }
 function updateLightbox(){
-  const item = lbItems[lbIndex];
-  document.getElementById('lightbox-img').src = 'images/'+item.img;
-  document.getElementById('lightbox-img').alt = item.name;
-  document.getElementById('lightbox-name').textContent = item.name;
-  document.getElementById('lightbox-type').textContent = item.type;
+  const g = GALLERY[lbIndex];
+  document.getElementById('lightbox-img').src = 'images/' + g.img;
+  document.getElementById('lightbox-img').alt = g.name;
+  document.getElementById('lightbox-name').textContent = g.name;
+  document.getElementById('lightbox-type').textContent = g.type;
 }
-document.addEventListener('keydown',e=>{
-  const lb = document.getElementById('lightbox');
-  if(!lb.classList.contains('open')) return;
-  if(e.key==='ArrowLeft') shiftLightbox(-1);
-  if(e.key==='ArrowRight') shiftLightbox(1);
-  if(e.key==='Escape') closeLightbox();
+
+document.getElementById('gallery-grid').addEventListener('click', function(e){
+  const item = e.target.closest('.gallery-item');
+  if(item) openLightbox(parseInt(item.dataset.index));
 });
+document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+document.getElementById('lightbox-prev').addEventListener('click', function(){ shiftLightbox(-1); });
+document.getElementById('lightbox-next').addEventListener('click', function(){ shiftLightbox(1); });
+document.getElementById('lightbox').addEventListener('click', function(e){
+  if(e.target === this) closeLightbox();
+});
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key === 'ArrowLeft')  shiftLightbox(-1);
+  if(e.key === 'ArrowRight') shiftLightbox(1);
+  if(e.key === 'Escape')     closeLightbox();
+});
+
+// ── NAVIGATION ────────────────────────────────────────────────
 const PAGES = ['home','gallery','available','about','contact'];
 
 function show(id){
   if(!PAGES.includes(id)) id = 'home';
-  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top:0, behavior:'smooth'});
   document.getElementById('mobile-menu').classList.remove('open');
 }
 
-function toggleMenu(){
-  document.getElementById('mobile-menu').classList.toggle('open');
-}
-
-document.getElementById('toggle').addEventListener('click',function(){
+document.getElementById('nav-toggle').addEventListener('click', function(){
   document.getElementById('mobile-menu').classList.toggle('open');
 });
 
-document.addEventListener('click',function(e){
+document.addEventListener('click', function(e){
   const a = e.target.closest('a[href^="#"]');
   if(!a) return;
   const id = a.getAttribute('href').replace('#','');
   if(!PAGES.includes(id)) return;
   e.preventDefault();
   show(id);
-  history.pushState(null,'','#'+id);
+  history.pushState(null, '', '#' + id);
 });
 
-window.addEventListener('popstate',function(){
+window.addEventListener('popstate', function(){
   const id = window.location.hash.replace('#','');
   show(PAGES.includes(id) ? id : 'home');
 });
 
-(function init(){
+// initialise on load
+(function(){
   const id = window.location.hash.replace('#','');
   show(PAGES.includes(id) ? id : 'home');
 })();
-function toggleMenu(){
-  document.getElementById('mobile-menu').classList.toggle('open');
-}
-function closeMenu(){
-  document.getElementById('mobile-menu').classList.remove('open');
-}
-function submitForm(e){
-  e.preventDefault();
-  e.target.style.display='none';
-  document.getElementById('success').style.display='block';
-}
 </script>
 </body>
 </html>
