@@ -527,15 +527,6 @@ document.getElementById('toggle').addEventListener('click',function(){
   document.getElementById('mobile-menu').classList.toggle('open');
 });
 
-document.querySelectorAll('#mobile-menu a[data-page]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    show(this.getAttribute('data-page'));
-    history.pushState(null,'','#'+this.getAttribute('data-page'));
-  });
-});
-
 document.addEventListener('click',function(e){
   const a = e.target.closest('a[href^="#"]');
   if(!a) return;
